@@ -12,6 +12,19 @@ public class Main {
         // Define a regular expression pattern to match lines in the format "name:<name>;price:<price>;type:<type>;expiration:<expiration>".
         var p = Pattern.compile("(?i)name:(\\w+);price:(\\d+\\.\\d{2});type:(\\w+);expiration:(\\d{1,2}/\\d{1,2}/\\d{4})");
 
+        /*REGEX EXPLANATION:
+        (?i) - turns on case insensitive matching
+        name: - matches literal string 'name'
+        (\w+) - matches one or more word characters (letters, digits, or underscores) and captures them as a group. this group is for product name)
+        ;price: - matches literal string ';price:'
+        (\d+\.\d{2}) - matches one or more digits followed by a decimal point followed by exactly two digits and captures as a group (this is for product price)
+        ;type: - matches literal string ';type:'
+        (\w+) - matches one or more word characters (letters, digits, underscores) and captures as group. this group is for product type)
+        ;expiration: - matches literal string ';expiration:'
+        (\d{1,2}/\d{1,2}/\d{4}) - matches a date in the format MM/DD/YYYY and captures as group. allows for month and day to be one or two digits and year must be four
+         */
+
+
         // Create a new empty HashMap to hold the results.
         var t = new HashMap<String, Map<String, Integer>>();
 
